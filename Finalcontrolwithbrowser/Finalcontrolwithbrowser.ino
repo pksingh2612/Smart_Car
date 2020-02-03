@@ -3,7 +3,7 @@
 //https://dl.espressif.com/dl/package_esp32_index.json, http://arduino.esp8266.com/stable/package_esp8266com_index.json
 // click ok
 
-// then go to sketch > include library > manage libraries > in serach box type Esp > press ok
+// Go to "Tools -> Board -> Boards Manager", type "ESP8266" and install it.
 // then go to Tools> select Board > NodeMCU 1.0 (ESP 12E) > select port
 // verify the code
 // and upload the code
