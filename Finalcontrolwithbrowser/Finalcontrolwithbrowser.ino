@@ -1,9 +1,21 @@
-#include <ESP8266WiFi.h>
+// Go to File > Preferences > Additional Boards Manager URLs
+// then paste the below url in the field
+//https://dl.espressif.com/dl/package_esp32_index.json, http://arduino.esp8266.com/stable/package_esp8266com_index.json
+// click ok
 
-//Ultrasound Sensor
+// then go to sketch > include library > manage libraries > in serach box type Esp > press ok
+// then go to Tools> select Board > NodeMCU 1.0 (ESP 12E) > select port
+// verify the code
+// and upload the code
+
+//Header file
+#include <ESP8266WiFi.h> 
+
+//Ultrasound Distance Sensor 1
 #define trigPin1 15 // Trigger  D8
 #define echoPin1 3 //echo      RX
 
+//Ultrasound Distance Sensor 2
 #define trigPin2 13 // Trigger  D7
 #define echoPin2 12//echo      D6
 
@@ -53,7 +65,9 @@ void setup()
   pinMode (pinB1, OUTPUT);
   pinMode (pinB2, OUTPUT);  
 
+  // Serial monitor begin at 115200
   Serial.begin(115200);
+  
   // Connect to WiFi network
   Serial.println();
   Serial.println();
