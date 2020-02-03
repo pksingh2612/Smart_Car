@@ -28,7 +28,7 @@ int distance2;
 
  
 const char* ssid = "PKS"; // SSID i.e. Service Set Identifier is the name of your WIFI
-const char* password = "12345678"; // Your Wifi password, in case you have open network comment the whole statement.
+const char* password = "1234567890"; // Your Wifi password, in case you have open network comment the whole statement.
  
 
 WiFiServer server(80); // Creates a server that listens for incoming connections on the specified port, here in this case port is 80.
@@ -52,7 +52,8 @@ void setup()
   pinMode (enableB, OUTPUT);
   pinMode (pinB1, OUTPUT);
   pinMode (pinB2, OUTPUT);  
-  
+
+  Serial.begin(115200);
   // Connect to WiFi network
   Serial.println();
   Serial.println();
@@ -105,13 +106,13 @@ void loop()
  
   int value = 0;
   if (request.indexOf("/MOTOR=FORWARD") != -1)  {
-    goForward();
+    goBack();
     value = 1;
     checkdistance();
     delay(1);
   }
   if (request.indexOf("/MOTOR=BACKWARD") != -1)  {
-    goBack();
+    goForward();
     value = 2;
     checkdistance();
     delay(1);
@@ -236,6 +237,7 @@ void goForward()
 void stopMotorB()
 {
   digitalWrite(enableB, LOW);
+  delay(1);
 }
 
 //function to go back
@@ -252,6 +254,7 @@ void goBack()
 void stopMotorA()
 {
   digitalWrite (enableA, LOW);
+  delay(1);
 }
 
 //function to turn the RC car right
